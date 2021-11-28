@@ -6,6 +6,7 @@ body {
   align-items: center;
   font-family: arial;
   margin: 0;
+  padding: 0;
   height: 100vh;
   background: linear-gradient(#c9e1e0, #fff) no-repeat;
 }

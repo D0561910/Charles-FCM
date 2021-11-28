@@ -17,9 +17,19 @@ const pageLibrary = [
     pagePath: "newyear-animation",
     thisYear: new Date().getFullYear(),
   },
-  { pageId: 6, pagePath: "Crystal-ball-animation", thisYear: new Date().getFullYear() },
-  { pageId: 7, pagePath: "pet-inside-gift", thisYear: new Date().getFullYear() },
+  {
+    pageId: 6,
+    pagePath: "Crystal-ball-animation",
+    thisYear: new Date().getFullYear(),
+  },
+  {
+    pageId: 7,
+    pagePath: "pet-inside-gift",
+    thisYear: new Date().getFullYear(),
+  },
   { pageId: 8, pagePath: "Christmas-tree", thisYear: new Date().getFullYear() },
+  { pageId: 9, pagePath: "Santa-reindeer", thisYear: new Date().getFullYear() },
+  { pageId: 10, pagePath: "Christmas-snow", thisYear: new Date().getFullYear() },
 ];
 
 /* GET Christmas page. */
