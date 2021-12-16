@@ -29,13 +29,24 @@ const pageLibrary = [
   },
   { pageId: 8, pagePath: "Christmas-tree", thisYear: new Date().getFullYear() },
   { pageId: 9, pagePath: "Santa-reindeer", thisYear: new Date().getFullYear() },
-  { pageId: 10, pagePath: "Christmas-snow", thisYear: new Date().getFullYear() },
+  {
+    pageId: 10,
+    pagePath: "Christmas-snow",
+    thisYear: new Date().getFullYear(),
+  },
+  {
+    pageId: 11,
+    pagePath: "Christmas-website",
+    thisYear: new Date().getFullYear(),
+  },
 ];
 
 /* GET Christmas page. */
 router.get("/:id", function (req, res, next) {
   const { id } = req.params;
   const lib = pageLibrary[id];
+
+  console.log({ lib });
 
   if (lib) {
     res.render(`./Christmas/${lib.pagePath}`, { year: lib.thisYear });

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swiper Center Thumbnail Slider</title>
+    <link rel="stylesheet" href="../stylesheets/Swiper/swiper.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.8.4/swiper-bundle.min.css">
+    <style>
+        .main,
+        .gallery {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .swiper-container {
+            height: 100%;
+        }
+
+        .swiper-wrapper {
+            align-items: center;
+        }
+
+        .swiper-slide {
+            width: 200px;
+            height: 250px;
+            border-radius: 7px;
+        }
+
+        .swiper-slide img {
+            width: 200px;
+            height: 250px;
+        }
+
+        .swiper-slide-active {
+            transform: scale(1.2);
+            transition: 0.4s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gallery">
+        <div class="swiper-container gallery-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="//into-the-program.com/demo/images/sample010.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="//into-the-program.com/demo/images/sample005.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="//into-the-program.com/demo/images/sample012.jpg" alt=""></div>
+                <!-- <div class="swiper-slide"><img src="//into-the-program.com/demo/images/sample007.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="//into-the-program.com/demo/images/sample008.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="//into-the-program.com/demo/images/sample009.jpg" alt=""></div> -->
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+
+        <div class="swiper-container gallery-thumbs">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="//into-the-program.com/demo/images/sample010.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="//into-the-program.com/demo/images/sample005.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="//into-the-program.com/demo/images/sample012.jpg" alt=""></div>
+                <!-- <div class="swiper-slide"><img src="//into-the-program.com/demo/images/sample007.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="//into-the-program.com/demo/images/sample008.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="//into-the-program.com/demo/images/sample009.jpg" alt=""></div> -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.8.4/swiper-bundle.min.js"></script>
+    <script>
+        //メインスライド
+        var slider = new Swiper('.gallery-slider', {
+            slidesPerView: 'auto',
+            spaceBetween: 0,
+            centeredSlides: true,
+            grabCursor: true,
+
+            // slidesPerView: 1,
+            // centeredSlides: true,
+            loop: true,
+            loopedSlides: 6, //スライドの枚数と同じ値を指定
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                },
+                1024: {
+                    slidesPerView: "auto",
+                },
+            },
+        });
+
+        //サムネイルスライド
+        var thumbs = new Swiper('.gallery-thumbs', {
+            slidesPerView: 'auto',
+            spaceBetween: 0,
+            centeredSlides: true,
+            loop: true,
+            slideToClickedSlide: true,
+            grabCursor: false,
+            simulateTouch: true,
+
+            breakpoints: {
+                320: {
+                    slidesPerView: 4,
+                },
+                1024: {
+                    slidesPerView: "auto",
+                    slideToClickedSlide: true,
+                    grabCursor: true,
+                    simulateTouch: true,
+                },
+            },
+        });
+
+        //3系
+        //slider.params.control = thumbs;
+        //thumbs.params.control = slider;
+
+        //4系～
+        slider.controller.control = thumbs;
+        thumbs.controller.control = slider;
+    </script>
+</body>
+
+</html>
